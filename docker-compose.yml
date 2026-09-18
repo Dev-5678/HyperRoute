@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  gateway:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+      - upstream-alpha
+      - upstream-beta
+    restart: always
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    restart: always
+
+  upstream-alpha:
+    image: hashicorp/http-echo:0.2.3
+    command: ["-text=Upstream Alpha responding"]
+    ports:
+      - "8081:5678"
+
+  upstream-beta:
+    image: hashicorp/http-echo:0.2.3
+    command: ["-text=Upstream Beta responding"]
+    ports:
+      - "8082:5678"
