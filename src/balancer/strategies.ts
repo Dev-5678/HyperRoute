@@ -30,3 +30,16 @@ export class WeightedRoundRobinBalancer {
     return healthy[0];
   }
 }
+export class LeastConnectionsBalancer {
+  private servers: UpstreamServer[];
+
+  constructor(servers: UpstreamServer[]) {
+    this.servers = servers;
+  }
+
+  public getNext(): UpstreamServer {
+    const healthy = this.servers.filter(s => s.isHealthy);
+    if (healthy.length === 0) throw new Error('No healthy upstreams available');
+    return healthy.reduce((min, s) => s.activeConnections < min.activeConnections ? s : min, healthy[0]);
+  }
+}
