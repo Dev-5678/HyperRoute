@@ -145,3 +145,11 @@ hyperroute_latency_ms{quantile="0.99"} 2.80
 
 Designed and engineered with ?? by **[Dev Jangid](https://github.com/Dev-5678)**.  
 Licensed under the [MIT License](LICENSE).
+
+---
+
+## âš¡ October 21 Innovations: Least-Connections Balancer, LRU Edge Cache & HMAC Auth
+
+- **Least-Connections Load Balancing:** Routes ingress traffic dynamically to nodes with the fewest active TCP sockets.
+- **LRU Edge Response Cache:** Built-in sub-millisecond in-memory cache supporting Cache-Control header inspection and background stale-while-revalidate.
+- **Timing-Safe HMAC-SHA256 Webhook Verification:** Protects downstream endpoints against tampering and replay attacks.
