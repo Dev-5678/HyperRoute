@@ -153,3 +153,7 @@ Licensed under the [MIT License](LICENSE).
 - **Least-Connections Load Balancing:** Routes ingress traffic dynamically to nodes with the fewest active TCP sockets.
 - **LRU Edge Response Cache:** Built-in sub-millisecond in-memory cache supporting Cache-Control header inspection and background stale-while-revalidate.
 - **Timing-Safe HMAC-SHA256 Webhook Verification:** Protects downstream endpoints against tampering and replay attacks.
+- **Adaptive EWMA Latency Load Balancer:** Dynamically samples and decays response times per upstream using exponentially weighted moving averages ($\alpha = 0.2$), prioritizing faster instances.
+- **High-Entropy Correlation Tracing (`X-Request-Id`):** Time-ordered, cryptographically secure request identifiers injected into inbound and outbound payloads for end-to-end telemetry.
+- **Subnet CIDR Access Control Lists (ACL):** Bitmask-based IPv4 CIDR range parser and filtering middleware preventing unauthorized upstream access.
+
