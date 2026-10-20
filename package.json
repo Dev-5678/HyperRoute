@@ -1,0 +1,28 @@
+{
+  "name": "hyper-route",
+  "version": "1.0.0",
+  "description": "High-Throughput Distributed Edge API Gateway & Sliding-Window Rate Limiter",
+  "main": "dist/gateway.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test dist/tests/*.js",
+    "benchmark": "node dist/benchmark/gateway-benchmark.js",
+    "start": "node dist/src/gateway.js"
+  },
+  "keywords": [
+    "api-gateway",
+    "rate-limiter",
+    "sliding-window",
+    "token-bucket",
+    "reverse-proxy",
+    "prometheus",
+    "distributed-systems",
+    "high-throughput"
+  ],
+  "author": "Dev Jangid <https://github.com/Dev-5678>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}
