@@ -27,3 +27,8 @@ export class ConnectionPoolManager {
     return this.agent;
   }
 }
+export class PoolBackpressure {
+  public static shouldThrottle(activeConnections: number, maxCapacity: number): boolean {
+    return activeConnections >= maxCapacity * 0.95;
+  }
+}
