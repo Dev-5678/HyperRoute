@@ -14,3 +14,8 @@ export class HMACValidator {
     return crypto.timingSafeEqual(a, b);
   }
 }
+export class ReplayAttackDefense {
+  public static isTimestampValid(requestTimeMs: number, maxSkewMs = 300000, now = Date.now()): boolean {
+    return Math.abs(now - requestTimeMs) <= maxSkewMs;
+  }
+}
