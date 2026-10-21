@@ -11,3 +11,19 @@ export interface PoolConfig {
   maxFreeSockets: number;
   keepAliveMsecs: number;
 }
+export class ConnectionPoolManager {
+  private agent: http.Agent;
+
+  constructor(config: PoolConfig = { maxSockets: 1024, maxFreeSockets: 256, keepAliveMsecs: 60000 }) {
+    this.agent = new http.Agent({
+      keepAlive: true,
+      maxSockets: config.maxSockets,
+      maxFreeSockets: config.maxFreeSockets,
+      keepAliveMsecs: config.keepAliveMsecs,
+    });
+  }
+
+  public getAgent(): http.Agent {
+    return this.agent;
+  }
+}
