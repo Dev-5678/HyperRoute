@@ -11,3 +11,22 @@ export enum BalancingStrategy {
   WEIGHTED_ROUND_ROBIN = 'WEIGHTED_ROUND_ROBIN',
   LEAST_CONNECTIONS = 'LEAST_CONNECTIONS',
 }
+export class WeightedRoundRobinBalancer {
+  private servers: UpstreamServer[];
+  private currentIndex = -1;
+  private currentWeight = 0;
+  private maxWeight: number;
+  private gcdWeight: number;
+
+  constructor(servers: UpstreamServer[]) {
+    this.servers = servers;
+    this.maxWeight = Math.max(...servers.map(s => s.weight));
+    this.gcdWeight = 1;
+  }
+
+  public getNext(): UpstreamServer {
+    const healthy = this.servers.filter(s => s.isHealthy);
+    if (healthy.length === 0) throw new Error('No healthy upstreams available');
+    return healthy[0];
+  }
+}
