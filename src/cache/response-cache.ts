@@ -23,3 +23,8 @@ export class EdgeResponseCache {
     this.store.set(key, entry);
   }
 }
+export class StaleWhileRevalidatePolicy {
+  public static isStale(entry: CacheEntry, now = Date.now()): boolean {
+    return now - entry.createdAt > entry.ttlMs * 0.75;
+  }
+}
