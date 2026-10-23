@@ -156,4 +156,7 @@ Licensed under the [MIT License](LICENSE).
 - **Adaptive EWMA Latency Load Balancer:** Dynamically samples and decays response times per upstream using exponentially weighted moving averages ($\alpha = 0.2$), prioritizing faster instances.
 - **High-Entropy Correlation Tracing (`X-Request-Id`):** Time-ordered, cryptographically secure request identifiers injected into inbound and outbound payloads for end-to-end telemetry.
 - **Subnet CIDR Access Control Lists (ACL):** Bitmask-based IPv4 CIDR range parser and filtering middleware preventing unauthorized upstream access.
+- **Circuit Breaker Fallback Interceptor:** Detects upstream 5xx anomalies, trips circuit breaker, and serves cached stale payloads or graceful fallbacks.
+- **Request Body Size Guard & Content-Type Whitelist:** Strict payload byte inspection and MIME-type enforcement preventing buffer starvation attacks.
+- **Weighted Traffic Canary Splitter:** Deterministic consistent-hash traffic splitting for zero-flap blue-green and canary deployments.
 
