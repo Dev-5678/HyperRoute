@@ -1,4 +1,4 @@
-# ?? HyperRoute // High-Throughput Edge API Gateway & Rate Limiter
+# ⚡ HyperRoute // High-Throughput Edge API Gateway & Rate Limiter
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-amber.svg)](LICENSE)
 [![Runtime: Node.js 20+](https://img.shields.io/badge/Runtime-Node.js%2020%2B-green.svg)](https://nodejs.org/)
@@ -10,7 +10,7 @@
 
 ---
 
-## ?? Architectural Topology
+## ⚡ Architectural Topology
 
 ```mermaid
 graph TD
@@ -48,7 +48,7 @@ graph TD
 
 ---
 
-## ?? Mathematical Rate-Limiting Formulation
+## 🧮 Mathematical Rate-Limiting Formulation
 
 Unlike naive fixed-window algorithms that allow up to $2 \times$ the rate limit at window boundaries, HyperRoute computes an interpolated sliding-window estimate:
 
@@ -68,7 +68,7 @@ $$T(t) = \min\left(B, \; T(t_{\text{prev}}) + r \cdot (t - t_{\text{prev}})\righ
 
 ---
 
-## ?? Performance Benchmarks
+## 📊 Performance Benchmarks
 
 Stress-tested on standard commodity infrastructure with 100,000 requests over 1,000 distinct IP buckets:
 
@@ -82,7 +82,7 @@ Stress-tested on standard commodity infrastructure with 100,000 requests over 1,
 
 ---
 
-## ?? Quickstart & Execution
+## 🚀 Quickstart & Execution
 
 ### Prerequisites
 - Node.js `v18.x`, `v20.x`, or `v22.x`
@@ -120,7 +120,7 @@ docker-compose up -d
 
 ---
 
-## ??? OpenMetrics Telemetry
+## 📈 OpenMetrics Telemetry
 
 HyperRoute exposes standards-compliant Prometheus telemetry at `/metrics`:
 ```prometheus
@@ -141,9 +141,9 @@ hyperroute_latency_ms{quantile="0.99"} 2.80
 
 ---
 
-## ?? License & Attribution
+## 📄 License & Attribution
 
-Designed and engineered with ?? by **[Dev Jangid](https://github.com/Dev-5678)**.  
+Designed and engineered by **[Dev Jangid](https://github.com/Dev-5678)**.  
 Licensed under the [MIT License](LICENSE).
 
 ---
